@@ -8,6 +8,7 @@ import {
 import DiscoFloor from "./components/DiscoFloor";
 import NapsterLogo from "./components/NapsterLogo";
 import Stars from "./components/Stars";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 function Visualizer() {
   const { start, started } = useAudioAnalyzer();
@@ -26,7 +27,13 @@ function Visualizer() {
   }
 
   return (
-    <Canvas camera={{ position: [0, 10, 20], fov: 60 }}>
+    <Canvas
+      camera={{ position: [0, 10, 20], fov: 60 }}
+      style={{ width: "100vw", height: "100vh", background: "black" }}
+    >
+      <EffectComposer>
+        <Bloom intensity={1.5} luminanceThreshold={0.2} />
+      </EffectComposer>
       <ambientLight />
       <spotLight
         position={[10, 20, 10]}
