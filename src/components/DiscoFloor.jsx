@@ -18,7 +18,7 @@ export default function DiscoFloor() {
         return (
           <mesh key={i} position={[x, value, z]}>
             <boxGeometry args={[1, 0.5 + value * 2, 1]} />
-            <meshStandardMaterial color={`hsl(${value * 360}, 100%, 50%)`} />
+            <meshStandardMaterial color={`hsl(${value * 200}, 150%, 55%)`} />
           </mesh>
         );
       })}
